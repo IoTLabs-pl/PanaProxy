@@ -1,0 +1,67 @@
+number:
+  - platform: panasonic_aquarea
+    set: 5
+  - platform: panasonic_aquarea
+    set: 6
+  - platform: panasonic_aquarea
+    set: 7
+  - platform: panasonic_aquarea
+    set: 8
+  - platform: panasonic_aquarea
+    set: 11
+  - platform: panasonic_aquarea
+    set: 15
+  - platform: panasonic_aquarea
+    set: 16_1
+  - platform: panasonic_aquarea
+    set: 16_2
+  - platform: panasonic_aquarea
+    set: 16_3
+  - platform: panasonic_aquarea
+    set: 16_4
+  - platform: panasonic_aquarea
+    set: 16_5
+  - platform: panasonic_aquarea
+    set: 16_6
+  - platform: panasonic_aquarea
+    set: 16_7
+  - platform: panasonic_aquarea
+    set: 16_8
+  - platform: panasonic_aquarea
+    set: 16_9
+  - platform: panasonic_aquarea
+    set: 16_10
+  - platform: panasonic_aquarea
+    set: 16_11
+  - platform: panasonic_aquarea
+    set: 16_12
+  - platform: panasonic_aquarea
+    set: 16_13
+  - platform: panasonic_aquarea
+    set: 16_14
+  - platform: panasonic_aquarea
+    set: 16_15
+  - platform: panasonic_aquarea
+    set: 16_16
+  - platform: panasonic_aquarea
+    set: 18
+  - platform: panasonic_aquarea
+    set: 19
+  - platform: panasonic_aquarea
+    set: 20
+  - platform: panasonic_aquarea
+    set: 21
+  - platform: panasonic_aquarea
+    set: 22
+  - platform: panasonic_aquarea
+    set: 23
+  - platform: panasonic_aquarea
+    set: 27
+  - platform: panasonic_aquarea
+    set: 29
+  - platform: panasonic_aquarea
+    set: 36
+  - platform: panasonic_aquarea
+    set: 37
+  - platform: panasonic_aquarea
+    set: 38

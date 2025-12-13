@@ -1,0 +1,9 @@
+button:
+  - platform: panasonic_aquarea
+    set: 12
+  - platform: panasonic_aquarea
+    set: 13
+  - platform: panasonic_aquarea
+    set: 14_1
+  - platform: panasonic_aquarea
+    set: 14_2

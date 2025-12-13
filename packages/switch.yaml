@@ -1,0 +1,21 @@
+switch:
+  - platform: panasonic_aquarea
+    set: 1
+  - platform: panasonic_aquarea
+    set: 10
+  - platform: panasonic_aquarea
+    set: 24
+  - platform: panasonic_aquarea
+    set: 25
+  - platform: panasonic_aquarea
+    set: 28
+  - platform: panasonic_aquarea
+    set: 30
+  - platform: panasonic_aquarea
+    set: 31
+  - platform: panasonic_aquarea
+    set: 32
+  - platform: panasonic_aquarea
+    set: 33
+  - platform: panasonic_aquarea
+    set: 34

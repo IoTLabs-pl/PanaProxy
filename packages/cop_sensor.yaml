@@ -1,0 +1,83 @@
+sensor:
+  - id: !extend heat_power_production
+    on_value:
+        then:
+        - component.update: cop_heat
+  - id: !extend heat_power_consumption
+    on_value:
+        then:
+        - component.update: cop_heat
+  - id: !extend cool_power_production
+    on_value:
+      then:
+        - component.update: cop_cool
+  - id: !extend cool_power_consumption
+    on_value:
+      then:
+        - component.update: cop_cool
+  - id: !extend dhw_power_production
+    on_value:
+      then:
+        - component.update: cop_dhw
+  - id: !extend dhw_power_consumption
+    on_value:
+      then:
+        - component.update: cop_dhw
+
+  - platform: template
+    id: cop_heat
+    name: COP Heat
+    unit_of_measurement: ""
+    accuracy_decimals: 2
+    update_interval: never
+    state_class: measurement
+    lambda: |-
+      if (id(heat_power_consumption).state <= 5) {
+        return 0.0f;
+      }
+      return id(heat_power_production).state / id(heat_power_consumption).state;
+    on_value: 
+      then:
+        - component.update: total_cop
+  - platform: template
+    id: cop_cool
+    name: COP Cool
+    unit_of_measurement: ""
+    accuracy_decimals: 2
+    update_interval: never
+    state_class: measurement
+    lambda: |-
+      if (id(cool_power_consumption).state <= 5) {
+        return 0.0f;
+      }
+      return id(cool_power_production).state / id(cool_power_consumption).state;
+    on_value:
+      then:
+        - component.update: total_cop
+  - platform: template
+    id: cop_dhw
+    name: COP DHW
+    unit_of_measurement: ""
+    accuracy_decimals: 2
+    update_interval: never
+    state_class: measurement
+    lambda: |-
+      if (id(dhw_power_consumption).state <= 5) {
+        return 0.0f;
+      }
+      return id(dhw_power_production).state / id(dhw_power_consumption).state;
+    on_value:
+      then:
+        - component.update: total_cop
+  - platform: template
+    id: total_cop
+    name: Total COP
+    unit_of_measurement: ""
+    accuracy_decimals: 2
+    update_interval: never
+    state_class: measurement
+    lambda: |-
+      if (id(total_consumption).state <= 5) {
+        return 0.0f;
+      }
+      return id(total_production).state / id(total_consumption).state;

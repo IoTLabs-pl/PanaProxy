@@ -1,0 +1,43 @@
+# ETH_CS: GPIO0
+# ETH_INT: GPIO1
+# ETH_MOSI: GPIO9
+# ETH_MISO: GPIO6
+# ETH_CLK: GPIO8
+# ETH_RST: GPIO7
+
+esp32:
+  variant: esp32c3
+  framework:
+    type: esp-idf
+
+light:
+  - platform: esp32_rmt_led_strip
+    id: status_led
+    rgb_order: GRB
+    pin: GPIO10
+    num_leds: 1
+    chipset: ws2812
+
+binary_sensor:
+  - platform: gpio
+    id: external_button
+    pin: GPIO9
+
+uart:
+  - id: heatpump_uart
+    tx_pin: GPIO3
+    rx_pin:
+      number: GPIO2
+      ignore_strapping_warning: true
+    baud_rate: 9600
+    data_bits: 8
+    parity: EVEN
+    stop_bits: 1
+  - id: remote_uart
+    tx_pin: GPIO4
+    rx_pin: GPIO5
+    baud_rate: 9600
+    data_bits: 8
+    parity: EVEN
+    stop_bits: 1
+

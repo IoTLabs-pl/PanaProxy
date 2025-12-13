@@ -1,0 +1,25 @@
+logger:
+  tx_buffer_size: 2048
+  task_log_buffer_size: 1536
+  
+uart:
+  - id: !extend heatpump_uart
+    debug:
+      direction: BOTH
+      after:
+        bytes: 0
+        timeout: 250ms
+      sequence:
+        - lambda: |-
+            ESP_LOGD("uart_debug", "HP");
+            UARTDebug::log_hex(direction, bytes, ' ');
+  - id: !extend remote_uart
+    debug:
+    direction: RX
+    after:
+      bytes: 0
+      timeout: 250ms
+    sequence:
+      - lambda: |-
+          ESP_LOGD("uart_debug", "CZ-TAW1");
+          UARTDebug::log_hex(direction, bytes, ' ');

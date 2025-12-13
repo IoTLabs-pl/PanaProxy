@@ -1,0 +1,89 @@
+esphome:
+  name: panaproxy
+  friendly_name: "PanaProxy: ESPHome Panasonic Aquarea Heatpump Controller"
+  project:
+    name: IoTLabs.PanaProxy
+    version: ${panaproxy_version}
+
+external_components:
+  - source:
+      type: git
+      url: https://github.com/IoTLabs-pl/ESPHome-Components
+      ref: ${esphome_components_version}
+    components:
+      - panasonic_aquarea
+
+improv_serial:
+
+esp32_improv:
+  authorizer: none
+
+wifi:
+  ap:
+    ssid: IoTLabs PanaProxy
+
+ota:
+  - platform: http_request
+  - platform: esphome
+  - platform: web_server
+
+api:
+
+captive_portal:
+
+http_request:
+
+dashboard_import:
+  package_import_url: github://IoTLabs-pl/PanaProxy/blueprint.yaml@latest
+  import_full_config: true
+
+update:
+  - platform: http_request
+    name: Firmware Update
+    source: https://github.com/IoTLabs-pl/PanaProxy/releases/latest/download/manifest.json
+
+logger:
+  level: DEBUG
+
+panasonic_aquarea:
+  uart_id: heatpump_uart
+  external_controller_uart_id: remote_uart
+
+web_server:
+  version: 3
+
+packages:
+  version: !include packages/version.yaml
+  panaproxy_hal: !include packages/panaproxy_hal.yaml
+  binary_sensor: !include packages/binary_sensor.yaml
+  button: !include packages/button.yaml
+  number: !include packages/number.yaml
+  select: !include packages/select.yaml
+  sensor: !include packages/sensor.yaml
+  switch: !include packages/switch.yaml
+  text_sensor: !include packages/text_sensor.yaml
+  cop_sensor: !include packages/cop_sensor.yaml
+  energy_sensor: !include packages/energy_sensor.yaml
+
+button:
+  - platform: restart
+    name: Restart
+
+debug:
+  update_interval: 15s
+
+time:
+  - platform: sntp
+
+sensor:
+  - platform: uptime
+    name: Uptime
+    type: timestamp
+  - platform: wifi_signal
+    name: RSSI
+    update_interval: 60s
+  - platform: debug
+    free:
+      name: Free Heap
+      device_class: data_size
+      state_class: measurement

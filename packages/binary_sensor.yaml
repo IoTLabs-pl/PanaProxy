@@ -1,0 +1,27 @@
+binary_sensor:
+  - platform: panasonic_aquarea
+    top: 3
+  - platform: panasonic_aquarea
+    top: 26
+  - platform: panasonic_aquarea
+    top: 60
+  - platform: panasonic_aquarea
+    top: 61
+  - platform: panasonic_aquarea
+    top: 68
+  - platform: panasonic_aquarea
+    top: 69
+  - platform: panasonic_aquarea
+    top: 100
+  - platform: panasonic_aquarea
+    top: 109
+  - platform: panasonic_aquarea
+    top: 110
+  - platform: panasonic_aquarea
+    top: 123
+  - platform: panasonic_aquarea
+    top: 124
+  - platform: panasonic_aquarea
+    top: 132
+  - platform: panasonic_aquarea
+    top: 133

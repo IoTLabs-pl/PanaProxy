@@ -1,0 +1,147 @@
+sensor:
+  - platform: panasonic_aquarea
+    top: 1
+  - platform: panasonic_aquarea
+    top: 5
+  - platform: panasonic_aquarea
+    top: 6
+  - platform: panasonic_aquarea
+    top: 7
+  - platform: panasonic_aquarea
+    top: 8
+  - platform: panasonic_aquarea
+    top: 9
+  - platform: panasonic_aquarea
+    top: 10
+  - platform: panasonic_aquarea
+    top: 11
+  - platform: panasonic_aquarea
+    top: 12
+  - platform: panasonic_aquarea
+    top: 14
+  - platform: panasonic_aquarea
+    top: 15
+    id: heat_power_production
+  - platform: panasonic_aquarea
+    top: 16
+    id: heat_power_consumption
+  - platform: panasonic_aquarea
+    top: 21
+  - platform: panasonic_aquarea
+    top: 23
+  - platform: panasonic_aquarea
+    top: 24
+  - platform: panasonic_aquarea
+    top: 25    
+  - platform: panasonic_aquarea    
+    top: 33          
+  - platform: panasonic_aquarea    
+    top: 36     
+  - platform: panasonic_aquarea    
+    top: 37     
+  - platform: panasonic_aquarea    
+    top: 38    
+    id: cool_power_production 
+  - platform: panasonic_aquarea    
+    top: 39    
+    id: cool_power_consumption 
+  - platform: panasonic_aquarea    
+    top: 40    
+    id: dhw_power_production 
+  - platform: panasonic_aquarea    
+    top: 41    
+    id: dhw_power_consumption 
+  - platform: panasonic_aquarea    
+    top: 42     
+  - platform: panasonic_aquarea    
+    top: 43        
+  - platform: panasonic_aquarea    
+    top: 45     
+  - platform: panasonic_aquarea    
+    top: 46     
+  - platform: panasonic_aquarea    
+    top: 47     
+  - platform: panasonic_aquarea    
+    top: 48    
+  - platform: panasonic_aquarea    
+    top: 49    
+  - platform: panasonic_aquarea    
+    top: 50    
+  - platform: panasonic_aquarea    
+    top: 51    
+  - platform: panasonic_aquarea    
+    top: 52    
+  - platform: panasonic_aquarea    
+    top: 53    
+  - platform: panasonic_aquarea    
+    top: 54    
+  - platform: panasonic_aquarea    
+    top: 55    
+  - platform: panasonic_aquarea    
+    top: 56    
+  - platform: panasonic_aquarea    
+    top: 57    
+  - platform: panasonic_aquarea    
+    top: 62
+  - platform: panasonic_aquarea    
+    top: 63
+  - platform: panasonic_aquarea    
+    top: 64
+  - platform: panasonic_aquarea    
+    top: 65
+  - platform: panasonic_aquarea    
+    top: 66
+  - platform: panasonic_aquarea    
+    top: 67
+  - platform: panasonic_aquarea    
+    top: 70
+  - platform: panasonic_aquarea    
+    top: 71
+  - platform: panasonic_aquarea    
+    top: 77   
+  - platform: panasonic_aquarea    
+    top: 78   
+  - platform: panasonic_aquarea    
+    top: 79   
+  - platform: panasonic_aquarea    
+    top: 80        
+  - platform: panasonic_aquarea    
+    top: 90   
+  - platform: panasonic_aquarea    
+    top: 91   
+  - platform: panasonic_aquarea    
+    top: 93 
+  - platform: panasonic_aquarea    
+    top: 102
+  - platform: panasonic_aquarea    
+    top: 103
+  - platform: panasonic_aquarea    
+    top: 104
+  - platform: panasonic_aquarea    
+    top: 105
+  - platform: panasonic_aquarea    
+    top: 113
+  - platform: panasonic_aquarea    
+    top: 115
+  - platform: panasonic_aquarea
+    top: 116
+  - platform: panasonic_aquarea    
+    top: 117
+  - platform: panasonic_aquarea    
+    top: 118
+  - platform: panasonic_aquarea
+    top: 127
+  - platform: panasonic_aquarea
+    top: 128
+  - platform: panasonic_aquarea
+    top: 131
+  - platform: panasonic_aquarea
+    top: 134
+  - platform: panasonic_aquarea
+    top: 135
+  - platform: panasonic_aquarea
+    top: 136
+  - platform: panasonic_aquarea
+    top: 137
+  - platform: panasonic_aquarea
+    top: 138
