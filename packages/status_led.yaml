@@ -1,0 +1,60 @@
+output:
+  - platform: template
+    type: binary
+    id: status_led_shadow_output
+    write_action:
+      if:
+        condition:
+          lambda: return state != id(builtin_led)->current_values.is_on();
+        then:
+          if:
+            condition:
+              lambda: return state;
+            then:
+              - light.turn_on:
+                  id: builtin_led
+                  red: 1.0
+                  green: 0.0
+                  blue: 0.0
+                  brightness: 30%
+            else:
+              - light.turn_off:
+                  id: builtin_led
+
+light:
+  - id: status_led_
+    platform: status_led
+    output: status_led_shadow_output
+  - id: !extend builtin_led
+    default_transition_length: 0ms
+
+logger:
+  logs:
+    light: WARN
+
+script:
+  - id: uart_blink
+    mode: queued
+    parameters:
+      green: bool
+    then:
+      - light.turn_on:
+          id: builtin_led
+          red: 0.0
+          green: !lambda "return green ? 1.0 : 0.0;"
+          blue: !lambda "return green ? 0.0 : 1.0;"
+          brightness: 100%
+          flash_length: 150ms
+      - delay: 160ms
+
+uart:
+  - id: !extend heatpump_uart
+    debug:
+      direction: BOTH
+      after:
+        bytes: 0
+        timeout: 50ms
+      sequence:
+        - script.execute:
+            id: uart_blink
+            green: !lambda "return direction == uart::UART_DIRECTION_RX;"

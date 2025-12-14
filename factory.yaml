@@ -1,9 +1,12 @@
 esphome:
   name: panaproxy
-  friendly_name: "PanaProxy: ESPHome Panasonic Aquarea Heatpump Controller"
+  friendly_name: "PanaProxy: Panasonic Aquarea Heatpump Controller"
   project:
     name: IoTLabs.PanaProxy
     version: ${panaproxy_version}
+  # on_boot:
+  #   then:
+  #     - script.execute: blinker
 
 external_components:
   - source:
@@ -30,6 +33,7 @@ ota:
 api:
 
 captive_portal:
+  id: captive_portal_
 
 http_request:
 
@@ -55,19 +59,19 @@ web_server:
 packages:
   version: !include packages/version.yaml
   panaproxy_hal: !include packages/panaproxy_hal.yaml
-  binary_sensor: !include packages/binary_sensor.yaml
-  button: !include packages/button.yaml
-  number: !include packages/number.yaml
-  select: !include packages/select.yaml
-  sensor: !include packages/sensor.yaml
-  switch: !include packages/switch.yaml
-  text_sensor: !include packages/text_sensor.yaml
-  cop_sensor: !include packages/cop_sensor.yaml
-  energy_sensor: !include packages/energy_sensor.yaml
+  default_entities: !include packages/default_entities.yaml
+  extra_entities: !include packages/extra_entities.yaml
+  status_led: !include packages/status_led.yaml
 
 button:
   - platform: restart
     name: Restart
+
+binary_sensor:
+  - id: !extend external_button
+    on_press:
+      then:
+        - lambda: id(captive_portal_).start();
 
 debug:
   update_interval: 15s
@@ -87,3 +91,5 @@ sensor:
       name: Free Heap
       device_class: data_size
       state_class: measurement
+
+

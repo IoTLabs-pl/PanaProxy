@@ -1,42 +1,42 @@
-sensor: 
+sensor:
   - platform: integration
-    name: 'Heat Energy'
+    name: "Heat Energy"
     sensor: heat_power_consumption
     time_unit: h
     restore: true
     state_class: total_increasing
     device_class: energy
-    unit_of_measurement: 'kWh'
+    unit_of_measurement: "kWh"
     filters:
       - multiply: 0.001
   - platform: integration
-    name: 'Cool Energy'
+    name: "Cool Energy"
     sensor: cool_power_consumption
     time_unit: h
     restore: true
     state_class: total_increasing
     device_class: energy
-    unit_of_measurement: 'kWh'
+    unit_of_measurement: "kWh"
     filters:
       - multiply: 0.001
   - platform: integration
-    name: 'DHW Energy'
+    name: "DHW Energy"
     sensor: dhw_power_consumption
     time_unit: h
     restore: true
     state_class: total_increasing
     device_class: energy
-    unit_of_measurement: 'kWh'
+    unit_of_measurement: "kWh"
     filters:
       - multiply: 0.001
   - platform: integration
-    name: 'Total Energy'
+    name: "Total Energy"
     sensor: total_consumption
     time_unit: h
     restore: true
     state_class: total_increasing
     device_class: energy
-    unit_of_measurement: 'kWh'
+    unit_of_measurement: "kWh"
     filters:
       - multiply: 0.001
   - platform: combination
@@ -48,9 +48,6 @@ sensor:
       - source: heat_power_consumption
       - source: cool_power_consumption
       - source: dhw_power_consumption
-    on_value:
-      then:
-        - component.update: total_cop
   - platform: combination
     id: total_production
     name: Total Production
@@ -60,6 +57,3 @@ sensor:
       - source: heat_power_production
       - source: cool_power_production
       - source: dhw_power_production
-    on_value:
-      then:
-        - component.update: total_cop

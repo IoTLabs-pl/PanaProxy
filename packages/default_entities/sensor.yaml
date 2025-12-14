@@ -145,3 +145,15 @@ sensor:
     top: 137
   - platform: panasonic_aquarea
     top: 138
+  - platform: panasonic_aquarea
+    top: x0
+  - platform: panasonic_aquarea
+    top: x1
+  - platform: panasonic_aquarea
+    top: x2
+  - platform: panasonic_aquarea
+    top: x3
+  - platform: panasonic_aquarea
+    top: x4
+  - platform: panasonic_aquarea
+    top: x5

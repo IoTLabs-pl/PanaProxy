@@ -1,0 +1,3 @@
+packages:
+  cop_sensor: !include extra_entities/cop_sensor.yaml
+  energy_sensor: !include extra_entities/energy_sensor.yaml

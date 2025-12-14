@@ -12,7 +12,7 @@ esp32:
 
 light:
   - platform: esp32_rmt_led_strip
-    id: status_led
+    id: builtin_led
     rgb_order: GRB
     pin: GPIO10
     num_leds: 1
@@ -21,7 +21,9 @@ light:
 binary_sensor:
   - platform: gpio
     id: external_button
-    pin: GPIO9
+    pin: 
+      number: GPIO9
+      ignore_strapping_warning: True
 
 uart:
   - id: heatpump_uart

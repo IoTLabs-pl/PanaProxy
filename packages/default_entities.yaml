@@ -1,0 +1,8 @@
+packages:
+  binary_sensor: !include default_entities/binary_sensor.yaml
+  button: !include default_entities/button.yaml
+  number: !include default_entities/number.yaml
+  select: !include default_entities/select.yaml
+  sensor: !include default_entities/sensor.yaml
+  switch: !include default_entities/switch.yaml
+  text_sensor: !include default_entities/text_sensor.yaml

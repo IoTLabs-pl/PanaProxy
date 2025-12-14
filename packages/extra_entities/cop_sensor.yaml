@@ -1,11 +1,11 @@
 sensor:
   - id: !extend heat_power_production
     on_value:
-        then:
+      then:
         - component.update: cop_heat
   - id: !extend heat_power_consumption
     on_value:
-        then:
+      then:
         - component.update: cop_heat
   - id: !extend cool_power_production
     on_value:
@@ -23,6 +23,14 @@ sensor:
     on_value:
       then:
         - component.update: cop_dhw
+  - id: !extend total_consumption
+    on_value:
+      then:
+        - component.update: total_cop
+  - id: !extend total_production
+    on_value:
+      then:
+        - component.update: total_cop
 
   - platform: template
     id: cop_heat
@@ -36,7 +44,7 @@ sensor:
         return 0.0f;
       }
       return id(heat_power_production).state / id(heat_power_consumption).state;
-    on_value: 
+    on_value:
       then:
         - component.update: total_cop
   - platform: template
