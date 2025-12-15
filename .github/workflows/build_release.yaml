@@ -23,4 +23,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            ${{ steps.build_firmware.outputs.name }}/*
+            ${{ steps.build_firmware.outputs.name }}/manifest.json
+            ${{ steps.build_firmware.outputs.name }}/*.bin
