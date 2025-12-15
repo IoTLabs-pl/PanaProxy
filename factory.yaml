@@ -4,9 +4,6 @@ esphome:
   project:
     name: IoTLabs.PanaProxy
     version: ${panaproxy_version}
-  # on_boot:
-  #   then:
-  #     - script.execute: blinker
 
 external_components:
   - source:

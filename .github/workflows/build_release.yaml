@@ -1,0 +1,26 @@
+name: Build release firmware
+on:
+  release:
+    types:
+      - published
+jobs:
+  build_and_upload:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      - name: Build firmware
+        id: build_firmware
+        uses: esphome/build-action@v7
+        with:
+          yaml-file: factory.yaml
+          release-summary: ${{ github.event.release.body }}
+          release-url: ${{ github.event.release.html_url }}
+          complete-manifest: true
+      - name: Upload binaries to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            ${{ steps.build_firmware.outputs.name }}/*

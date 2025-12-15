@@ -1,0 +1,34 @@
+packages:
+  # Hardware configuration (ESP32-C3, UART pins, LED, button)
+  panaproxy_hal: github://IoTLabs-pl/PanaProxy/packages/panaproxy_hal.yaml@latest
+  # Default entities (sensors, switches, numbers, selects, etc.)
+  default_entities: github://IoTLabs-pl/PanaProxy/packages/default_entities.yaml@latest
+  # or by domain
+  # sensor_entities: github://IoTLabs-pl/PanaProxy/packages/default_entities/sensor.yaml@latest
+  # switch_entities: github://IoTLabs-pl/PanaProxy/packages/default_entities/switch.yaml@latest
+  # number_entities: github://IoTLabs-pl/PanaProxy/packages/default_entities/number.yaml@latest
+  # select_entities: github://IoTLabs-pl/PanaProxy/packages/default_entities/select.yaml@latest
+  # ...
+  extra_entities: github://IoTLabs-pl/PanaProxy/packages/extra_entities.yaml@latest
+  # Status LED indicator
+  status_led: github://IoTLabs-pl/PanaProxy/packages/status_led.yaml@latest
+
+esphome:
+  friendly_name: PanaProxy
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+# Home Assistant integration via native API
+api:
+
+# Enable OTA updates
+ota:
+  - platform: esphome
+
+# Alternative: If you want to use MQTT instead of native API integration.
+# mqtt:
+#   broker: mqtt.example.com
+#   username: !secret mqtt_username
+#   password: !secret mqtt_password

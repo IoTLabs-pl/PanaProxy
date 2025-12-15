@@ -38,14 +38,18 @@ script:
     parameters:
       green: bool
     then:
-      - light.turn_on:
-          id: builtin_led
-          red: 0.0
-          green: !lambda "return green ? 1.0 : 0.0;"
-          blue: !lambda "return green ? 0.0 : 1.0;"
-          brightness: 100%
-          flash_length: 150ms
-      - delay: 160ms
+      - if:
+          condition:
+            lambda: return !(App.get_app_state() & STATUS_LED_MASK);
+          then:
+            - light.turn_on:
+                id: builtin_led
+                red: 0.0
+                green: !lambda "return green ? 1.0 : 0.0;"
+                blue: !lambda "return green ? 0.0 : 1.0;"
+                brightness: 100%
+                flash_length: 150ms
+            - delay: 160ms
 
 uart:
   - id: !extend heatpump_uart
