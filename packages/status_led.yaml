@@ -5,21 +5,17 @@ output:
     write_action:
       if:
         condition:
-          lambda: return state != id(builtin_led)->current_values.is_on();
+          lambda: return state;
         then:
-          if:
-            condition:
-              lambda: return state;
-            then:
-              - light.turn_on:
-                  id: builtin_led
-                  red: 1.0
-                  green: 0.0
-                  blue: 0.0
-                  brightness: 30%
-            else:
-              - light.turn_off:
-                  id: builtin_led
+          - light.turn_on:
+              id: builtin_led
+              red: 1.0
+              green: 0.0
+              blue: 0.0
+              brightness: 30%
+        else:
+          - light.turn_off:
+              id: builtin_led
 
 light:
   - id: status_led_

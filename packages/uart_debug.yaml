@@ -15,11 +15,11 @@ uart:
             UARTDebug::log_hex(direction, bytes, ' ');
   - id: !extend remote_uart
     debug:
-    direction: RX
-    after:
-      bytes: 0
-      timeout: 250ms
-    sequence:
-      - lambda: |-
-          ESP_LOGD("uart_debug", "CZ-TAW1");
-          UARTDebug::log_hex(direction, bytes, ' ');
+      direction: RX
+      after:
+        bytes: 0
+        timeout: 250ms
+      sequence:
+        - lambda: |-
+            ESP_LOGD("uart_debug", "CZ-TAW1");
+            UARTDebug::log_hex(direction, bytes, ' ');
