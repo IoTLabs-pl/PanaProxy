@@ -1,0 +1,89 @@
+packages:
+  default_entities: !include ../default_entities.yaml
+  derived_entities: !include ../derived_entities.yaml
+
+esphome:
+  devices:
+    - id: panaproxy_device
+      name: PanaProxy
+    - id: heatpump_device
+      name: Heatpump
+
+ota:
+  - platform: http_request
+  - platform: esphome
+  - platform: web_server
+
+api:
+
+captive_portal:
+  id: captive_portal_
+
+http_request:
+
+update:
+  - platform: http_request
+    device_id: panaproxy_device
+    id: ota_updater
+    name: Firmware Update
+    entity_category: config
+
+logger:
+  level: DEBUG
+  initial_level: INFO
+
+web_server:
+  version: 3
+
+button:
+  - platform: restart
+    name: Restart
+    entity_category: config
+    device_id: panaproxy_device
+  - platform: factory_reset
+    name: Factory Reset
+    entity_category: config
+    device_id: panaproxy_device
+  - platform: template
+    name: Check for Updates
+    entity_category: diagnostic
+    device_id: panaproxy_device
+    on_press:
+      then:
+        - component.update: ota_updater
+
+switch:
+  - platform: template
+    name: Heatpump Communication Logging
+    entity_category: config
+    device_id: panaproxy_device
+    turn_on_action: 
+      then:
+        - logger.set_level: 
+            tag: uart_debug
+            level: DEBUG
+    turn_off_action:
+      then:
+        - logger.set_level:
+            tag: uart_debug
+            level: INFO
+
+debug:
+  update_interval: 15s
+
+time:
+  - platform: sntp
+
+sensor:
+  - platform: uptime
+    name: Uptime
+    type: timestamp
+    device_id: panaproxy_device
+    entity_category: diagnostic
+  - platform: debug
+    free:
+      name: Free Heap
+      device_id: panaproxy_device
+      entity_category: diagnostic
+      device_class: data_size
+      state_class: measurement

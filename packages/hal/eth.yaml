@@ -1,0 +1,13 @@
+packages:
+  common: !include common.yaml
+
+ethernet:
+  type: W5500
+  clk_pin: GPIO8
+  mosi_pin:
+    pin: GPIO9
+    ignore_strapping_warning: true
+  miso_pin: GPIO6
+  cs_pin: GPIO0
+  interrupt_pin: GPIO1
+  reset_pin: GPIO7

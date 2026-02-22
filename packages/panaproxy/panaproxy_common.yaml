@@ -1,0 +1,24 @@
+packages:
+  version: !include version.yaml
+  uart_debug: !include ../utils/uart_debug.yaml
+  status_led: !include ../utils/status_led.yaml
+
+esphome:
+  name: panaproxy
+  friendly_name: PanaProxy ${ variant }
+  comment: Panasonic Aquarea Heatpump Controller
+  project:
+    name: IoTLabs.PanaProxy ${ variant }
+    version: ${panaproxy_version}
+
+external_components:
+  - source:
+      type: git
+      url: https://github.com/IoTLabs-pl/ESPHome-Components
+      ref: ${esphome_components_version}
+    components:
+      - panasonic_aquarea
+
+panasonic_aquarea:
+  uart_id: heatpump_uart
+  external_controller_uart_id: remote_uart

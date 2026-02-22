@@ -1,0 +1,6 @@
+packages:
+  hal: !include ../hal/eth.yaml
+  panaproxy: !include
+    file: panaproxy_common.yaml
+    vars:
+      variant: ETH

@@ -1,0 +1,6 @@
+packages:
+  hal: !include ../hal/wifi.yaml
+  panaproxy: !include
+    file: panaproxy_common.yaml
+    vars:
+      variant: ""

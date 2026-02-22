@@ -1,0 +1,9 @@
+packages:
+  common: !include common.yaml
+
+binary_sensor:
+  - platform: gpio
+    id: external_button
+    pin:
+      number: GPIO9
+      ignore_strapping_warning: True

@@ -1,0 +1,43 @@
+packages:
+  heat_cop: !include
+    file: derived_entities/cop.yaml
+    vars:
+      name: Heat
+  cool_cop: !include
+    file: derived_entities/cop.yaml
+    vars:
+      name: Cool
+  dhw_cop: !include
+    file: derived_entities/cop.yaml
+    vars:
+      name: DHW
+  total_cop: !include
+    file: derived_entities/cop.yaml
+    vars:
+      name: Total
+
+  total_consumption: !include
+    file: derived_entities/total_power.yaml
+    vars:
+      name: Consumption
+  total_production: !include
+    file: derived_entities/total_power.yaml
+    vars:
+      name: Production
+
+  heat_energy: !include
+    file: derived_entities/energy.yaml
+    vars:
+      name: Heat
+  cool_energy: !include
+    file: derived_entities/energy.yaml
+    vars:
+      name: Cool
+  dhw_energy: !include
+    file: derived_entities/energy.yaml
+    vars:
+      name: DHW
+  total_energy: !include
+    file: derived_entities/energy.yaml
+    vars:
+      name: Total

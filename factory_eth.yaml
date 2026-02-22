@@ -1,0 +1,11 @@
+packages:
+  panaproxy: !include packages/panaproxy/panaproxy_eth.yaml
+  common: !include packages/panaproxy/factory_common.yaml
+
+dashboard_import:
+  package_import_url: github://IoTLabs-pl/PanaProxy/blueprint_eth.yaml@latest
+  import_full_config: true
+
+update:
+  - id: !extend ota_updater
+    source: https://github.com/IoTLabs-pl/PanaProxy/releases/latest/download/manifest_eth.json
