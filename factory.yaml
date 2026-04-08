@@ -11,6 +11,9 @@ wifi:
   ap:
     ssid: IoTLabs PanaProxy
 
+captive_portal:
+  id: captive_portal_
+
 dashboard_import:
   package_import_url: github://IoTLabs-pl/PanaProxy/blueprint.yaml@latest
   import_full_config: true

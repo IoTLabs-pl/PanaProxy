@@ -16,9 +16,6 @@ ota:
 
 api:
 
-captive_portal:
-  id: captive_portal_
-
 http_request:
 
 update:
