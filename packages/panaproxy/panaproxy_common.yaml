@@ -4,7 +4,7 @@ packages:
   status_led: !include ../utils/status_led.yaml
 
 esphome:
-  name: panaproxy
+  name: ${ fullname | lower | replace(' ', '-') }
   friendly_name: ${ fullname }
   comment: Panasonic Aquarea Heatpump Controller
   project:

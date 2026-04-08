@@ -10,7 +10,7 @@ jobs:
       contents: write
     strategy:
       matrix:
-        config: 
+        config:
           - factory.yaml
           - factory_eth.yaml
     steps:
@@ -24,9 +24,13 @@ jobs:
           release-summary: ${{ github.event.release.body }}
           release-url: ${{ github.event.release.html_url }}
           complete-manifest: true
+      - name: Rename manifest file
+        working-directory: ${{ steps.build_firmware.outputs.name }}
+        run: |
+          mv manifest.json ${{ steps.build_firmware.outputs.original-name }}.manifest.json
       - name: Upload binaries to release
         uses: softprops/action-gh-release@v2.6.1
         with:
           files: |
-            ${{ steps.build_firmware.outputs.name }}/manifest*.json
+            ${{ steps.build_firmware.outputs.name }}/*.json
             ${{ steps.build_firmware.outputs.name }}/*.bin
