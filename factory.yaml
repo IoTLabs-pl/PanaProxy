@@ -17,12 +17,13 @@ dashboard_import:
 
 update:
   - id: !extend ota_updater
-    source: https://github.com/IoTLabs-pl/PanaProxy/releases/latest/download/manifest.json
+    source: https://ota.iotlabs.pl/PanaProxy
 
 binary_sensor:
   - id: !extend external_button
-    name: Restart
+    name: Start Captive Portal
     entity_category: diagnostic
+    internal: true
     on_press:
       then:
         - lambda: id(captive_portal_).start();

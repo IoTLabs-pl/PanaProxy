@@ -98,6 +98,7 @@ You'll see:
 ## ⚙️ Advanced Users: Customizing the Firmware
 
 If you want to modify the firmware (add sensors, automations, change behavior, etc.), use **Adopt** in ESPHome Dashboard.
+> ⚠️ **Remember that once you adopt the device, it will no longer receive managed firmware updates and you will be responsible for maintaining your custom firmware, syncing with ESPHome Core updates, etc.** If you want to return to the managed firmware, you will need to re-flash the factory firmware on your device.
 
 ### How to Adopt & Customize
 

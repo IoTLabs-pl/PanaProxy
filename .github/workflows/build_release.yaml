@@ -8,6 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    strategy:
+      matrix:
+        config: 
+          - factory.yaml
+          - factory_eth.yaml
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -15,7 +20,7 @@ jobs:
         id: build_firmware
         uses: esphome/build-action@v7
         with:
-          yaml-file: factory.yaml
+          yaml-file: ${{ matrix.config }}
           release-summary: ${{ github.event.release.body }}
           release-url: ${{ github.event.release.html_url }}
           complete-manifest: true
@@ -23,5 +28,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            ${{ steps.build_firmware.outputs.name }}/manifest.json
+            ${{ steps.build_firmware.outputs.name }}/manifest*.json
             ${{ steps.build_firmware.outputs.name }}/*.bin

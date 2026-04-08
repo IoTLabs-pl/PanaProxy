@@ -5,10 +5,10 @@ packages:
 
 esphome:
   name: panaproxy
-  friendly_name: PanaProxy ${ variant }
+  friendly_name: ${ fullname }
   comment: Panasonic Aquarea Heatpump Controller
   project:
-    name: IoTLabs.PanaProxy ${ variant }
+    name: IoTLabs.${ fullname }
     version: ${panaproxy_version}
 
 external_components:

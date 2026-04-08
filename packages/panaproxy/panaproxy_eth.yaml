@@ -3,4 +3,4 @@ packages:
   panaproxy: !include
     file: panaproxy_common.yaml
     vars:
-      variant: ETH
+      fullname: PanaProxy ETH

@@ -8,4 +8,4 @@ dashboard_import:
 
 update:
   - id: !extend ota_updater
-    source: https://github.com/IoTLabs-pl/PanaProxy/releases/latest/download/manifest_eth.json
+    source: https://ota.iotlabs.pl/PanaProxy-ETH

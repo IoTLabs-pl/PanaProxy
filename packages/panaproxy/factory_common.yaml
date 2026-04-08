@@ -30,7 +30,8 @@ update:
 
 logger:
   level: DEBUG
-  initial_level: INFO
+  logs: 
+    uart_debug: NONE
 
 web_server:
   version: 3
@@ -66,7 +67,7 @@ switch:
       then:
         - logger.set_level:
             tag: uart_debug
-            level: INFO
+            level: NONE
 
 debug:
   update_interval: 15s
