@@ -4,8 +4,6 @@ packages:
 
 esphome:
   devices:
-    - id: panaproxy_device
-      name: PanaProxy
     - id: heatpump_device
       name: Heatpump
 
@@ -20,7 +18,6 @@ http_request:
 
 update:
   - platform: http_request
-    device_id: panaproxy_device
     id: ota_updater
     name: Firmware Update
     entity_category: config
@@ -37,15 +34,12 @@ button:
   - platform: restart
     name: Restart
     entity_category: config
-    device_id: panaproxy_device
   - platform: factory_reset
     name: Factory Reset
     entity_category: config
-    device_id: panaproxy_device
   - platform: template
     name: Check for Updates
     entity_category: diagnostic
-    device_id: panaproxy_device
     on_press:
       then:
         - component.update: ota_updater
@@ -54,7 +48,6 @@ switch:
   - platform: template
     name: Heatpump Communication Logging
     entity_category: config
-    device_id: panaproxy_device
     turn_on_action: 
       then:
         - logger.set_level: 
@@ -76,12 +69,10 @@ sensor:
   - platform: uptime
     name: Uptime
     type: timestamp
-    device_id: panaproxy_device
     entity_category: diagnostic
   - platform: debug
     free:
       name: Free Heap
-      device_id: panaproxy_device
       entity_category: diagnostic
       device_class: data_size
       state_class: measurement
