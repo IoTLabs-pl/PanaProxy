@@ -34,6 +34,5 @@ binary_sensor:
 sensor:
   - platform: wifi_signal
     name: RSSI
-    device_id: panaproxy_device
     entity_category: diagnostic
     update_interval: 60s
