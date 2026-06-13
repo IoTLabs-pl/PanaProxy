@@ -15,7 +15,7 @@ packages_dir = root_dir / "packages"
 target_dir = packages_dir / "default_entities"
 index_file = packages_dir / "default_entities.yaml"
 
-version_file = packages_dir / "version.yaml"
+version_file = packages_dir / "panaproxy" / "version.yaml"
 factory_firmware_file = root_dir / "factory.yaml"
 
 fetch_head = Path(".git", "FETCH_HEAD")

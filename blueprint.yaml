@@ -32,18 +32,14 @@ sensor:
   - platform: panasonic_aquarea
     id: panaproxy_pump_flow
     top: 1
-    device_id: heatpump_device
   - platform: panasonic_aquarea
     id: panaproxy_main_inlet_temperature
     top: 5
-    device_id: heatpump_device
 
 switch:
   - platform: panasonic_aquarea
     id: panaproxy_state
     set: 1
-    device_id: heatpump_device
   - platform: panasonic_aquarea
     id: panaproxy_force_dhw
     set: 10
-    device_id: heatpump_device
