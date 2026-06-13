@@ -38,6 +38,7 @@ button:
     name: Factory Reset
     entity_category: config
   - platform: template
+    id: check_updates
     name: Check for Updates
     entity_category: diagnostic
     on_press:
@@ -64,6 +65,7 @@ debug:
 
 time:
   - platform: sntp
+    id: default_time
 
 sensor:
   - platform: uptime
