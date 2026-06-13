@@ -106,7 +106,7 @@ def main():
     logger.info(f"Writing index file with {len(packages)} package(s)")
     with index_file.open("w") as f:
         f.write(header_text)
-        f.write(dump({"packages": packages}))
+        f.write(dump({"packages": packages}, sort_keys=True))
     logger.info(f"Generated index file: {index_file}")
 
     logger.info("default_entities generation completed successfully")
