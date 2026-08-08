@@ -3,9 +3,9 @@
 Controller for Panasonic Aquarea heat pumps, integrating seamlessly with Home Assistant.
 
 <p align="center">
-    <!-- Add device images if available -->
-    <!-- <img src="IMAGE_URL_1" alt="PanaProxy" width="30%" /> -->
-    <!-- <img src="IMAGE_URL_2" alt="PanaProxy" width="30%" /> -->
+    <img src="https://iotlabs.pl/wp-content/uploads/2026/03/pp_22.jpg" alt="PanaProxy" width="30%" />
+    <img src="https://iotlabs.pl/wp-content/uploads/2026/03/pp_21.jpg" alt="PanaProxy" width="30%" />
+    <img src="https://iotlabs.pl/wp-content/uploads/2026/03/p11-scaled.jpg" alt="PanaProxy" width="30%" />
 </p>
 
 ---
