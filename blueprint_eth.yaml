@@ -6,7 +6,7 @@
 # If you want to use the managed firmware updates, you need to re-flash the factory firmware on your device. 
 
 packages:
-  panaproxy: github://IoTLabs-pl/PanaProxy/packages/panaproxy/panaproxy_eth.yaml@v1.0.2
+  panaproxy: github://IoTLabs-pl/PanaProxy/packages/panaproxy/panaproxy_eth.yaml@v1.0.3
 
 # If you want to connect with HA, you need to enable API.
 api:
