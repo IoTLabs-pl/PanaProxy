@@ -1,0 +1,29 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "customManagers": [
+    {
+      "managerFilePatterns": ["packages/panaproxy/version.yaml"],
+      "fileFormat": "yaml",
+      "customType": "jsonata",
+      "matchStrings": [
+        "substitutions.{\"currentValue\":esphome_components_version}"
+      ],
+      "packageNameTemplate": "IoTLabs-pl/ESPHome-Components",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "managerFilePatterns": [
+        ".github/workflows/build.yaml",
+        ".github/workflows/build_release.yaml"
+      ],
+      "fileFormat": "yaml",
+      "customType": "jsonata",
+      "matchStrings": [
+        "jobs.*.steps[id=\"build_firmware\"].{\"currentValue\":with.version}"
+      ],
+      "packageNameTemplate": "esphome/esphome",
+      "datasourceTemplate": "github-releases"
+    }
+  ]
+}
