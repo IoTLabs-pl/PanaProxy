@@ -29,7 +29,7 @@ jobs:
         run: |
           mv manifest.json ${{ steps.build_firmware.outputs.original-name }}.manifest.json
       - name: Upload binaries to release
-        uses: softprops/action-gh-release@v2.6.1
+        uses: softprops/action-gh-release@v2.6.2
         with:
           files: |
             ${{ steps.build_firmware.outputs.name }}/*.json
