@@ -1,0 +1,37 @@
+name: Build firmware
+
+on:
+  pull_request:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - factory.yaml
+          - factory_eth.yaml
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+      - name: Build firmware
+        id: build_firmware
+        uses: esphome/build-action@v8.1.0
+        with:
+          version: "2026.9.1"
+          yaml-file: ${{ matrix.config }}
+          complete-manifest: true
+      - name: Rename manifest file
+        working-directory: ${{ steps.build_firmware.outputs.name }}
+        run: |
+          mv manifest.json ${{ steps.build_firmware.outputs.name }}.manifest.json
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: firmware-build-${{ matrix.config }}
+          path: |
+            ${{ steps.build_firmware.outputs.name }}/*.bin
+            ${{ steps.build_firmware.outputs.name }}/*.manifest.json
