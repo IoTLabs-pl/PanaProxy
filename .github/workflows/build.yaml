@@ -23,11 +23,13 @@ jobs:
         with:
           version: "2026.9.1"
           yaml-file: ${{ matrix.config }}
+          release-summary: ${{ github.event.release.body }}
+          release-url: ${{ github.event.release.html_url }}
           complete-manifest: true
       - name: Rename manifest file
         working-directory: ${{ steps.build_firmware.outputs.name }}
         run: |
-          mv manifest.json ${{ steps.build_firmware.outputs.name }}.manifest.json
+          mv manifest.json ${{ steps.build_firmware.outputs.original-name }}.manifest.json
       - name: Upload artifacts
         uses: actions/upload-artifact@v7
         with:
