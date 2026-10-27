@@ -1,5 +1,10 @@
 # PanaProxy
 
+![ESPHome](https://img.shields.io/badge/dynamic/yaml?url=https%3A%2F%2Fraw.githubusercontent.com%2FIoTLabs-pl%2FPanaProxy%2Frefs%2Fheads%2Fmaster%2F.github%2Fworkflows%2Fbuild.yaml&query=%24.jobs.build.steps...with.version&label=ESPHome&style=for-the-badge&color=f3922d&labelColor=2b4c5a&logo=esphome&logoColor=white)
+![Components](https://img.shields.io/badge/dynamic/yaml?url=https%3A%2F%2Fraw.githubusercontent.com%2FIoTLabs-pl%2FPanaProxy%2Frefs%2Fheads%2Fmaster%2Fpackages%2Fpanaproxy%2Fversion.yaml&query=%24.substitutions.esphome_components_version&label=Components&style=for-the-badge&color=f3922d&labelColor=2b4c5a&logo=git&logoColor=white)
+![Version](https://img.shields.io/github/v/release/IoTLabs-pl/PanaProxy?style=for-the-badge&color=f3922d&labelColor=2b4c5a&logo=git&logoColor=white)
+![GitHub License](https://img.shields.io/github/license/IoTLabs-pl/PanaProxy?style=for-the-badge&color=f3922d&labelColor=2b4c5a&logo=gplv3&logoColor=white)
+
 Controller for Panasonic Aquarea heat pumps, integrating seamlessly with Home Assistant.
 
 <p align="center">
