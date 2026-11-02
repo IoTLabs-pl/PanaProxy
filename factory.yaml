@@ -20,7 +20,7 @@ dashboard_import:
 
 update:
   - id: !extend ota_updater
-    source: https://ota.iotlabs.pl/PanaProxy
+    source: https://ota.iotlabs.pl/PanaProxy/latest
 
 binary_sensor:
   - id: !extend external_button
