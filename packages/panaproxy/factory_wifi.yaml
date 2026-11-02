@@ -1,0 +1,22 @@
+esp32:
+  framework:
+    sdkconfig_options:
+      CONFIG_BT_BLE_42_SCAN_EN: n
+
+improv_serial:
+
+esp32_improv:
+  authorizer: none
+
+wifi:
+  ap:
+    ssid: IoTLabs PanaProxy
+
+captive_portal:
+  id: captive_portal_
+
+sensor:
+  - platform: wifi_signal
+    name: RSSI
+    entity_category: diagnostic
+    update_interval: 60s

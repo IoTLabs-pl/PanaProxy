@@ -1,6 +1,31 @@
 packages:
   panaproxy: !include packages/panaproxy/panaproxy_eth.yaml
   common: !include packages/panaproxy/factory_common.yaml
+  wifi: !include packages/panaproxy/factory_wifi.yaml
+
+esphome:
+  on_boot:
+    then:
+      - delay: 20s
+      - if:
+          condition:
+            not: ethernet.connected
+          then:
+            - wifi.enable:
+
+network:
+  priority:
+    - ethernet
+    - wifi
+
+ethernet:
+  on_connect:
+    - wifi.disable:
+  on_disconnect:
+    - wifi.enable:
+
+wifi:
+  enable_on_boot: false
 
 dashboard_import:
   package_import_url: github://IoTLabs-pl/PanaProxy/blueprint_eth.yaml@latest
