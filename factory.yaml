@@ -1,18 +1,7 @@
 packages:
   panaproxy: !include packages/panaproxy/panaproxy.yaml
   common: !include packages/panaproxy/factory_common.yaml
-
-improv_serial:
-
-esp32_improv:
-  authorizer: none
-
-wifi:
-  ap:
-    ssid: IoTLabs PanaProxy
-
-captive_portal:
-  id: captive_portal_
+  wifi: !include packages/panaproxy/factory_wifi.yaml
 
 dashboard_import:
   package_import_url: github://IoTLabs-pl/PanaProxy/blueprint.yaml@latest
@@ -30,9 +19,3 @@ binary_sensor:
     on_press:
       then:
         - lambda: id(captive_portal_).start();
-
-sensor:
-  - platform: wifi_signal
-    name: RSSI
-    entity_category: diagnostic
-    update_interval: 60s
