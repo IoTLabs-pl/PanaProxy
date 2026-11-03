@@ -1,7 +1,7 @@
 sensor:
   - platform: integration
     name: ${ name } Energy
-    sensor: panaproxy_${ name | lower }_power_consumption
+    sensor: panaproxy_${ name | lower }_power_consumption_effective
     time_unit: h
     restore: true
     state_class: total_increasing

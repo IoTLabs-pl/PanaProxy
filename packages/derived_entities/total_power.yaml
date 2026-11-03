@@ -1,21 +1,11 @@
 sensor:
   - platform: combination
-    id: panaproxy_total_power_${ name | lower }
+    id: panaproxy_total_power_${ name | lower }_effective
     name: Total ${ name }
     type: sum
     state_class: measurement
     device_id: heatpump_device
     sources:
-      - source: panaproxy_heat_power_${ name | lower }
-      - source: panaproxy_cool_power_${ name | lower }
-      - source: panaproxy_dhw_power_${ name | lower }
-  - platform: combination
-    id: panaproxy_total_power_${ name | lower }_extra
-    name: Total ${ name } Extra
-    type: sum
-    state_class: measurement
-    device_id: heatpump_device
-    sources:
-      - source: panaproxy_heat_power_${ name | lower }_extra
-      - source: panaproxy_cool_power_${ name | lower }_extra
-      - source: panaproxy_dhw_power_${ name | lower }_extra
+      - source: panaproxy_heat_power_${ name | lower }_effective
+      - source: panaproxy_cool_power_${ name | lower }_effective
+      - source: panaproxy_dhw_power_${ name | lower }_effective
