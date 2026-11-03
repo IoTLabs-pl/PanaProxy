@@ -1,0 +1,31 @@
+sensor:
+  - id: !extend panaproxy_${ name | lower }_power_production
+    on_value:
+      then:
+        - component.update: panaproxy_${ name | lower }_power_production_effective
+  - id: !extend panaproxy_${ name | lower }_power_production_extra
+    on_value:
+      then:
+        - component.update: panaproxy_${ name | lower }_power_production_effective
+  - id: !extend panaproxy_${ name | lower }_power_consumption
+    on_value:
+      then:
+        - component.update: panaproxy_${ name | lower }_power_consumption_effective
+  - id: !extend panaproxy_${ name | lower }_power_consumption_extra
+    on_value:
+      then:
+        - component.update: panaproxy_${ name | lower }_power_consumption_effective
+
+  # Extra values are reported only by K/L series and newer, regular ones are bogus there
+  - platform: template
+    id: panaproxy_${ name | lower }_power_production_effective
+    update_interval: never
+    lambda: |-
+      auto extra = id(panaproxy_${ name | lower }_power_production_extra);
+      return extra->has_state() ? extra->state : id(panaproxy_${ name | lower }_power_production).state;
+  - platform: template
+    id: panaproxy_${ name | lower }_power_consumption_effective
+    update_interval: never
+    lambda: |-
+      auto extra = id(panaproxy_${ name | lower }_power_consumption_extra);
+      return extra->has_state() ? extra->state : id(panaproxy_${ name | lower }_power_consumption).state;

@@ -1,9 +1,9 @@
 sensor:
-  - id: !extend panaproxy_${ name | lower }_power_production
+  - id: !extend panaproxy_${ name | lower }_power_production_effective
     on_value:
       then:
         - component.update: panaproxy_cop_${ name | lower }
-  - id: !extend panaproxy_${ name | lower }_power_consumption
+  - id: !extend panaproxy_${ name | lower }_power_consumption_effective
     on_value:
       then:
         - component.update: panaproxy_cop_${ name | lower }
@@ -17,8 +17,7 @@ sensor:
     state_class: measurement
     device_id: heatpump_device
     lambda: |-
-      if (id(panaproxy_${ name | lower }_power_consumption).state <= 5) {
+      if (id(panaproxy_${ name | lower }_power_consumption_effective).state <= 5) {
         return 0.0f;
       }
-      return id(panaproxy_${ name | lower }_power_production).state / id(panaproxy_${ name | lower }_power_consumption).state;
- 
+      return id(panaproxy_${ name | lower }_power_production_effective).state / id(panaproxy_${ name | lower }_power_consumption_effective).state;
