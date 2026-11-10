@@ -1,0 +1,13 @@
+sensor:
+  - platform: combination
+    id: panaproxy_${ name | lower }_power_production_effective
+    type: max
+    sources:
+      - source: panaproxy_${ name | lower }_power_production
+      - source: panaproxy_${ name | lower }_power_production_extra
+  - platform: combination
+    id: panaproxy_${ name | lower }_power_consumption_effective
+    type: max
+    sources:
+      - source: panaproxy_${ name | lower }_power_consumption
+      - source: panaproxy_${ name | lower }_power_consumption_extra
