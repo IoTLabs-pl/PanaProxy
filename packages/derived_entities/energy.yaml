@@ -3,6 +3,7 @@ sensor:
     name: ${ name } Energy
     sensor: panaproxy_${ name | lower }_power_consumption_effective
     time_unit: h
+    integration_method: left
     restore: true
     state_class: total_increasing
     device_class: energy
