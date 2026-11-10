@@ -1,4 +1,17 @@
 packages:
+  heat_effective_power: !include
+    file: derived_entities/effective_power.yaml
+    vars:
+      name: Heat
+  cool_effective_power: !include
+    file: derived_entities/effective_power.yaml
+    vars:
+      name: Cool
+  dhw_effective_power: !include
+    file: derived_entities/effective_power.yaml
+    vars:
+      name: DHW
+
   heat_cop: !include
     file: derived_entities/cop.yaml
     vars:
