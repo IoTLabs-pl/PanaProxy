@@ -6,6 +6,7 @@ esphome:
   devices:
     - id: heatpump_device
       name: Heatpump
+      relation: via
 
 ota:
   - platform: http_request
